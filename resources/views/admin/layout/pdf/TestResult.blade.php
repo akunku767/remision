@@ -76,51 +76,37 @@
             width: 25%
         }
 
-        .header {
-            display: flex;
-            align-items: center;
-            /* ini yang membuat vertikalnya sejajar */
-            gap: 20px;
-            margin-bottom: 1rem;
+        .kop-table {
+            width: 100%;
+            border-collapse: collapse;
         }
 
-        .isi-judul {
+        .kop-table td {
+            vertical-align: middle;
             text-align: center;
-            flex: 1;
+            padding: 0;
+            margin: 0;
+            border: none;
         }
 
-        .kop-surat {
-            display: flex;
-            align-items: center;
-            /* Vertikal tengah */
-            justify-content: center;
-            /* Horizontal tengah */
-            gap: 20px;
-            margin-bottom: 1rem;
+        .kop-logo {
+            width: 100px;
         }
 
-        .logo-kiri,
-        .logo-kanan {
-            width: 80px;
-            height: 80px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .kop-logo img {
+            max-width: 80px;
+            height: auto;
+            display: block;
+            margin: auto;
         }
 
-        .logo-kiri img,
-        .logo-kanan img {
-            height: 100%;
-            object-fit: contain;
-        }
-
-        .judul-kop {
-            flex: 1;
-            text-align: center;
+        .kop-judul {
+            font-family: 'Times New Roman', Times, serif;
             font-size: 14pt;
+            line-height: 1.5;
         }
 
-        .bold {
+        .kop-judul .bold {
             font-weight: bold;
             font-size: 18pt;
         }
@@ -128,22 +114,23 @@
 </head>
 
 <body>
-    <div class="kop-surat">
-        <div class="logo-kiri">
-            <img src="https://remision.my.id/assets/img/Icon_Remision.png" alt="Logo Kiri">
-        </div>
-        <div class="judul-kop">
-            <div class="bold">BERKAH AUTO GARAGE</div>
-            <div class="bold">"REMISION"</div>
-            <div>Bengkel Mobil dan Reparasi</div>
-            <div>Jalan Baru Jadi No. 103, Kota Surabaya, Jawa Timur</div>
-            <div>Tel/Fax: 031-673924212, e-mail: info@remision.my.id</div>
-        </div>
-        <div class="logo-kanan">
-            <!-- Optional: Tambahkan logo kanan jika perlu -->
-            <img src="https://remision.my.id/assets/img/Logo_Kemenhub.png" alt="Logo Kanan">
-        </div>
-    </div>
+    <table class="kop-table">
+        <tr>
+            <td class="kop-logo">
+                <img src="https://remision.my.id/assets/img/Logo_Kemenhub.png" alt="Logo">
+            </td>
+            <td class="kop-judul">
+                <div class="bold">BERKAH AUTO GARAGE</div>
+                <div class="bold">"REMISION"</div>
+                <div>Bengkel Mobil dan Reparasi</div>
+                <div>Jalan Baru Jadi No. 103, Kota Surabaya, Jawa Timur</div>
+                <div>Tel/Fax: 031-673924212, e-mail: info@remision.my.id</div>
+            </td>
+            <td class="kop-logo">
+                <img src="https://remision.my.id/assets/img/Icon_Remision.png" alt="Logo">
+            </td>
+        </tr>
+    </table>
 
 
     <div class="line"></div>
