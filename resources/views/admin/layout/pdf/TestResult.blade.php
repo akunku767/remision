@@ -125,7 +125,7 @@
     </center>
 
     <div style="text-align: right; margin-top:5px">
-        Jakarta, {{ $now }}
+        Surabaya, {{ $now }}
     </div>
 
     <table style="margin-top: 10px;">

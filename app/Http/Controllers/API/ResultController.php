@@ -14,6 +14,7 @@ use App\Models\Vehicle;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
 use App\Jobs\GeneratePdfAndSendEmail;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 use Illuminate\Contracts\View\View;
 
@@ -128,17 +129,15 @@ class ResultController extends BaseController
             $CO = $vehicle->threshold->CO;
             $HC = $vehicle->threshold->HC;
 
+            $qrCode = 'data:image/svg+xml;base64,' . base64_encode(
+                QrCode::format('svg')->size(80)->generate(route('user.result.download', $result->identity))
+            );
+
             $data = [
+                'qrCode' => $qrCode,
                 'license_plate' => $vehicle->license_plate,
-                'O2' => $request->O2 . ' %',
-                'CO2' => $request->CO2 . ' %',
-                'CO' => $request->CO . ' %',
-                'HC' => $request->HC . ' ppm',
                 'brand' => $vehicle->brand,
-                'year' => $vehicle->production_year,
-                'result' => ($request->CO <= $CO && $request->HC <= $HC) ? 'LULUS' : 'TIDAK LULUS',
                 'date' => $tested_at,
-                'number' => Carbon::now()->format('Y/m/') . "EMISI/II" . Carbon::now()->format('/d') . "/" . $reff_num,
             ];
 
             // Dispatch job ke queue
