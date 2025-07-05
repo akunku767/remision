@@ -9,6 +9,7 @@ use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use Barryvdh\DomPDF\Facade\Pdf;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use Carbon\Carbon;
 
 class ResultController extends Controller
@@ -66,6 +67,9 @@ class ResultController extends Controller
         $CO = $vehicle->threshold->CO;
         $HC = $vehicle->threshold->HC;
 
+        $qrCode = QrCode::format('png')->size(80)->generate(route('user.result.download', $result->identity));
+        $base64Qr = base64_encode($qrCode);
+
         // Cek apakah hasil uji emisi LULUS atau TIDAK
         $status = ($result->CO <= $CO && $result->HC <= $HC) ? 'LULUS' : 'TIDAK LULUS';
 
@@ -80,7 +84,7 @@ class ResultController extends Controller
             'result' => $status,
             'brand' => $vehicle->brand,
             'production_year' => $vehicle->productionYear,
-            'qrcode' => route('user.result.download', $result->identity),
+            'base64Qr' => $base64Qr,
             'date' => Carbon::parse($result->tested_at)->translatedFormat('d F Y'),
             'now' => Carbon::now()->translatedFormat('d F Y'),
             'number' => Carbon::parse($result->tested_at)->format('Y/m/') . "EMISI/II" . Carbon::parse($result->tested_at)->format('/d') . "/" . $result->reference_number,
