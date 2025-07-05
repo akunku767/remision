@@ -76,7 +76,7 @@
             </tr>
             <tr>
                 <td>&nbsp;</td>
-                <td><img src="{{ $qrCode }}"></td>
+                <td>&nbsp;</td>
             </tr>
             <tr>
                 <td>&nbsp;</td>
