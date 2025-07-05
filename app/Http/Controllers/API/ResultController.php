@@ -37,6 +37,8 @@ class ResultController extends BaseController
         $create = Result::create([
             'vehicle_id' => $request->vehicle_id,
             'tested_at' => $request->tested_at,
+            'O2' => $request->O2,
+            'CO2' => $request->CO2,
             'CO' => $request->CO,
             'HC' => $request->HC,
             'reference_number' => $reff_num,
@@ -52,6 +54,8 @@ class ResultController extends BaseController
             if ($request->CO <= $CO && $request->HC <= $HC) {
                 $data = [
                     'license_plate' => $vehicle->license_plate,
+                    'O2' => $request->O2 . ' %',
+                    'CO2' => $request->CO2 . ' %',
                     'CO' => $request->CO . ' %',
                     'HC' => $request->HC . ' ppm',
                     'brand' => $vehicle->brand,
@@ -62,6 +66,8 @@ class ResultController extends BaseController
             } else {
                 $data = [
                     'license_plate' => $vehicle->license_plate,
+                    'O2' => $request->O2 . ' %',
+                    'CO2' => $request->CO2 . ' %',
                     'CO' => $request->CO . ' %',
                     'HC' => $request->HC . ' ppm',
                     'brand' => $vehicle->brand,
@@ -108,6 +114,8 @@ class ResultController extends BaseController
         $create = Result::create([
             'vehicle_id' => $request->vehicle_id,
             'tested_at' => $tested_at,
+            'O2' => $request->O2,
+            'CO2' => $request->CO2,
             'CO' => $request->CO,
             'HC' => $request->HC,
             'reference_number' => $reff_num,
@@ -122,6 +130,8 @@ class ResultController extends BaseController
 
             $data = [
                 'license_plate' => $vehicle->license_plate,
+                'O2' => $request->O2,
+                'CO2' => $request->CO2,
                 'CO' => $request->CO . ' %',
                 'HC' => $request->HC . ' ppm',
                 'brand' => $vehicle->brand,
