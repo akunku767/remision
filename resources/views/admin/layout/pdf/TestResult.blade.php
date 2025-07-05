@@ -13,7 +13,7 @@
 
         /* General styles */
         body {
-            margin: 0px!important;
+            margin: 0px !important;
             padding: 0;
             font-family: 'Times New Roman', Times, serif;
             line-height: 1.6;
@@ -95,6 +95,7 @@
 
         .header {
             text-align: center;
+            align-items: center;
         }
 
         .header img {
@@ -115,6 +116,11 @@
             padding: 10px;
             border-top: 1px solid #ddd;
             border-radius: 5px;
+        }
+
+        .line {
+            border-top: 2px solid black;
+            margin: 10px 0 20px;
         }
 
         .footer a {
@@ -140,14 +146,16 @@
         <div class="header">
             <img src="https://remision.my.id/assets/img/Icon_Remision.png" alt="Image" width="auto"
                 style="height: 4.5rem; margin: 0px 5px">
-            <div>
-                <div class="bold">Bengkel Mobil dan Reparasi</div>
+            <div class="IsiJudul">
+                <div class="bold">"Berkah Auto Garage" </div>
                 <div class="bold">"REMISION" </div>
-                <div class="bold">SEKOLAH MENENGAH ATAS (SMA) CENDANA</div>
-                Jalan Cendana No. 9A, Jakarta 20155<br>
-                Tel/Fax: 061 8246940, e-mail: sma_cendana@gmail.com
+                Bengkel Mobil dan Reparasi
+                Jalan Baru Jadi No. 103, Kota Surabaya, Jawa Timur<br>
+                Tel/Fax: 031-673924212, e-mail: info@remision.my.id
             </div>
         </div>
+
+        <div class="line"></div>
 
         <center>
             <span>
@@ -156,6 +164,26 @@
                 </b>
             </span>
         </center>
+
+        <div style="text-align: right;">
+            Jakarta, 25 Juni 2019
+        </div>
+
+        <table style="margin-top: 10px;">
+            <tr>
+                <td>No</td>
+                <td>: {{ $number }}</td>
+            </tr>
+            <tr>
+                <td>Lamp</td>
+                <td>: -</td>
+            </tr>
+            <tr>
+                <td>Hal</td>
+                <td>: Laporan Uji Emisi</td>
+            </tr>
+        </table>
+
         <p style="margin-top:3rem; margin-bottom: 0.5rem;">
             Yth. Kepala Dinas Perhubungan,<br>
             Kab. Sidoarjo<br>
@@ -167,10 +195,6 @@
         </p>
         <table style="border: 0px">
             <tbody>
-                <tr>
-                    <td>No Uji</td>
-                    <td>: {{ $number }}</td>
-                </tr>
                 <tr>
                     <td>No Kendaraan</td>
                     <td>: {{ $license_plate }}</td>
