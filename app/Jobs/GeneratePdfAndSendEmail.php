@@ -44,21 +44,21 @@ class GeneratePdfAndSendEmail implements ShouldQueue
         file_put_contents($filePath, $pdf->output());
 
         // Kirim email dengan lampiran PDF
-        // Mail::send([], [], function ($message) use ($filePath, $pdfFileName) {
-        //     $message->to($this->user->email)
-        //         ->subject('Hasil Uji Emisi')
-        //         ->html(view('admin.layout.mail.TestResult', $this->data)->render())
-        //         ->attach($filePath, [ // PAKAI $filePath, BUKAN storage_path()
-        //             'as' => $pdfFileName,
-        //             'mime' => 'application/pdf'
-        //         ]);
-        // });
-
-        Mail::send([], [], function ($message) {
-            $message->to('segalalomba123@gmail.com')
+        Mail::send([], [], function ($message) use ($filePath, $pdfFileName) {
+            $message->to($this->user->email)
                 ->subject('Hasil Uji Emisi')
-                ->setBody('Ini adalah hasil uji emisi kendaraan Anda. Terima kasih.', 'text/plain');
+                ->html(view('admin.layout.mail.TestResult', $this->data)->render())
+                ->attach($filePath, [ // PAKAI $filePath, BUKAN storage_path()
+                    'as' => $pdfFileName,
+                    'mime' => 'application/pdf'
+                ]);
         });
+
+        // Mail::send([], [], function ($message) {
+        //     $message->to('segalalomba123@gmail.com')
+        //         ->subject('Hasil Uji Emisi')
+        //         ->setBody('Ini adalah hasil uji emisi kendaraan Anda. Terima kasih.', 'text/plain');
+        // });
 
         // Hapus file PDF setelah email terkirim
         unlink($filePath);
