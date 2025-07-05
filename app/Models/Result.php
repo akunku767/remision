@@ -9,6 +9,8 @@ class Result extends Model
     protected $fillable = [
         'vehicle_id',
         'tested_at',
+        'O2',
+        'CO2',
         'CO',
         'HC',
         'reference_number',
