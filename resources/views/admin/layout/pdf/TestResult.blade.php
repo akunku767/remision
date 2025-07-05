@@ -40,17 +40,6 @@
             font-size: 18pt;
         }
 
-        .header {
-            text-align: center;
-            align-items: center;
-        }
-
-        .header img {
-            width: 80px;
-            float: left;
-            margin-right: 20px;
-        }
-
         /* Footer styles */
         .footer {
             width: 100%;
@@ -79,9 +68,23 @@
             text-decoration: underline;
         }
 
-        .isiJudul {
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .header img {
+            width: 80px;
+            height: auto;
+        }
+
+        .isiJudul {
             font-size: 14pt;
+            flex: 1;
         }
     </style>
 </head>
@@ -106,13 +109,14 @@
     <div class="line"></div>
 
     <center>
-        <span>
+        <span style="font-size: 18pt!important">
             <b>
                 SERTIFIKAT UJI EMISI
                 <br>
             </b>
         </span>
     </center>
+    <br>
 
     <div style="text-align: right;">
         Jakarta, {{ $now }}
