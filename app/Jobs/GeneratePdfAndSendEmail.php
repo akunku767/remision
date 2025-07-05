@@ -58,13 +58,8 @@ class GeneratePdfAndSendEmail implements ShouldQueue
         Mail::send([], [], function ($message) {
             $message->to('mrifqi767@gmail.com')
                 ->subject('Hasil Uji Emisi')
-                ->setBody('Ini adalah hasil uji emisi kendaraan Anda. Terima kasih.', 'text/plain');
+                ->text('Ini adalah hasil uji emisi kendaraan Anda. Terima kasih.');
         });
-
-        Log::info('📧 Email berhasil dikirim ke: mrifqi767@gmail.com dan file PDF berhasil dihapus.', [
-            'user_id' => $this->user->id ?? null,
-            'timestamp' => now(),
-        ]);
 
         // Hapus file PDF setelah email terkirim
         // unlink($filePath);
