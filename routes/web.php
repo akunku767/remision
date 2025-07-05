@@ -29,6 +29,8 @@ Route::group(['prefix' => 'pencarian'], function () {
     Route::get('/{chassis}/{identity}', [SearchController::class, 'test'])->name('search.test');
 });
 
+// Download certificate
+Route::get('/download/{identity}/pdf', [ResultController::class, 'download'])->name('user.result.download');
 
 Route::get('/mail', [HomeController::class, 'mail'])->name('home.mail');
 

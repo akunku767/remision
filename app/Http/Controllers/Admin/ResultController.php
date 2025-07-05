@@ -79,6 +79,8 @@ class ResultController extends Controller
             'HC' => $result->HC . ' ppm',
             'result' => $status,
             'brand' => $vehicle->brand,
+            'production_year' => $vehicle->productionYear,
+            'qrcode' => route('user.result.download', $result->identity),
             'date' => Carbon::parse($result->tested_at)->translatedFormat('d F Y'),
             'now' => Carbon::now()->translatedFormat('d F Y'),
             'number' => Carbon::parse($result->tested_at)->format('Y/m/') . "EMISI/II" . Carbon::parse($result->tested_at)->format('/d') . "/" . $result->reference_number,

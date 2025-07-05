@@ -37,30 +37,12 @@
 
         /* Footer styles */
         .footer {
-            width: 100%;
-            max-width: 600px;
-            margin-top: 20px;
-            text-align: center;
-            font-size: 12px;
-            color: #666;
-            background-color: #ffffff;
-            padding: 10px;
-            border-top: 1px solid #ddd;
-            border-radius: 5px;
+            
         }
 
         .line {
             border-top: 2px solid black;
             margin: 10px 0 10px;
-        }
-
-        .footer a {
-            color: #e60012;
-            text-decoration: none;
-        }
-
-        .footer a:hover {
-            text-decoration: underline;
         }
 
         .tabel-emisi {
@@ -166,18 +148,17 @@
     <p style="margin-top:3rem; margin-bottom: 0px!important;">
         Yth. Kepala Dinas Perhubungan,<br>
         Kab. Sidoarjo<br>
-        di Tempat<br><br>
+        di Tempat<br>
     </p>
-    <p style="text-indent: 2em;">
+    <p style="text-indent: 2em; margin-top: 5px!important">
         Sehubungan dengan telah diberlakukannya PERMEN LHK REPUBLIK INDONESIA NOMOR 8 TAHUN 2023 TENTANG
-        PENERAPAN BAKU MUTU EMISI KENDARAAN BERMOTOR KATEGORI M, KATEGORI N, KATEGORI O, DAN KATEGORI L.
-        Dengan ini menerangkan bahwa:
+        PENERAPAN BAKU MUTU EMISI KENDARAAN BERMOTOR. Dengan ini menerangkan bahwa:
     </p>
     <table style="border: 0px">
         <tbody>
             <tr>
                 <td>Tahun Produksi</td>
-                <td>: {{ $year }}</td>
+                <td>: {{ $production_year }}</td>
             </tr>
             <tr>
                 <td>No Kendaraan</td>
@@ -191,9 +172,8 @@
     </table>
 
     <p style="margin-top:0.5rem; margin-bottom: 0.5rem;">
-        Telah mengikuti uji emisi pada {{ $date }} di Pelaksana Uji Emisi "REMISION", kendaraan
-        bermotor tersebut memenuhi ambang batas emisi gas buang dan dinyatakan
-        <b>{{ $result }}</b> dengan indeks emisi:
+        Telah mengikuti uji emisi pada {{ $date }} di bengkel kami, dan
+         dinyatakan <b>{{ $result }}</b> ambang batas emisi gas buang dengan indeks emisi:
     </p>
 
     <table class="tabel-emisi">
@@ -216,10 +196,31 @@
     </table>
 
     <div class="footer" style="margin-top: 2rem">
-        <p style="margin: 0px !important;">Copyright &copy; {{ date('Y') }} REMISION (Reduce Emision with IoT
-            Solution). All rights reserved.</p>
-        <p style="margin: 0px !important;">Untuk informasi lebih lanjut, kunjungi <a
-                href="https://remision.my.id/">website kami</a>.</p>
+        <table>
+            <tr>
+                <td style="width: 60%">
+                </td>
+                <td style="width: 40%; text-align: center;">
+                    Hormat kami,
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 60%">
+                </td>
+                <td style="width: 40%; text-align: center;">
+                    <img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(200)->generate($qrcode)) !!} ">
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 60%">
+                </td>
+                <td style="width: 40%; text-align: center;">
+                    Berkah Auto Garage
+                </td>
+            </tr>
+        </table>
+
+        
     </div>
 </body>
 

@@ -6,25 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Test Result</title>
     <style>
+        @page {
+            margin: 0px !important;
+            /* top right bottom left */
+        }
+
         /* General styles */
         body {
-            margin: 50px 0 0 0;
+            margin: 3rem 5rem !important;
             padding: 0;
             font-family: 'Times New Roman', Times, serif;
-            margin: 40px;
             line-height: 1.6;
             display: flex;
             flex-direction: column;
             align-items: center;
-        }
-
-        .card-container {
-            width: 90%;
-            max-width: 600px;
-            padding: 20px;
-            text-align: center;
-            border-radius: 5px;
-            margin: 50px 0 0 20px;
         }
 
         h2 {
@@ -38,65 +33,6 @@
             line-height: 1.5;
             color: #333;
             text-align: justify;
-        }
-
-        .button {
-            display: inline-block;
-            margin-bottom: 1rem;
-            margin-top: 1rem;
-            padding: 10px 20px;
-            font-size: 16px;
-            color: #fff;
-            background-color: #e60012;
-            border: none;
-            border-radius: 5px;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        .button:hover {
-            background-color: #96000d;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-
-        th,
-        td {
-            padding: 10px;
-            text-align: left;
-            font-size: 14px;
-        }
-
-        thead th {
-            background-color: #608544;
-            color: #fff;
-        }
-
-        tbody tr:nth-child(odd) {
-            background-color: #6085447a;
-        }
-
-        tbody tr:nth-child(even) {
-            background-color: #608544ab;
-        }
-
-
-        .bold {
-            font-weight: bold;
-        }
-
-        .header {
-            text-align: center;
-        }
-
-        .header img {
-            width: 80px;
-            float: left;
-            margin-right: 20px;
         }
 
         /* Footer styles */
@@ -113,6 +49,11 @@
             border-radius: 5px;
         }
 
+        .line {
+            border-top: 2px solid black;
+            margin: 10px 0 10px;
+        }
+
         .footer a {
             color: #e60012;
             text-decoration: none;
@@ -121,112 +62,165 @@
         .footer a:hover {
             text-decoration: underline;
         }
+
+        .tabel-emisi {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        .tabel-emisi th,
+        .tabel-emisi td {
+            border: 1px solid #000;
+            padding: 5px;
+            width: 25%
+        }
+
+        .kop-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .kop-table td {
+            vertical-align: middle;
+            text-align: center;
+            padding: 0;
+            margin: 0;
+            border: none;
+        }
+
+        .kop-logo {
+            width: 100px;
+        }
+
+        .kop-logo img {
+            max-width: 80px;
+            height: auto;
+            display: block;
+            margin: auto;
+        }
+
+        .kop-judul {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 10pt;
+            line-height: 1.5;
+        }
+
+        .kop-judul .bold {
+            font-weight: bold;
+            font-size: 16pt;
+        }
     </style>
 </head>
 
 <body>
-    <div class="card-container">
-        {{-- <center>
-            <img src="https://remision.my.id/assets/img/Logo_Kemenhub.png"
-                alt="Image" width="auto" style="height: 4.5rem">
-            <img src="https://remision.my.id/assets/img/Logo_Remision.png" alt="Image" width="auto"
-                style="height: 4.5rem; margin: 0px 5px">
-        </center> --}}
+    <table class="kop-table">
+        <tr>
+            <td class="kop-logo">
+                <img src="https://remision.my.id/assets/img/Logo_Kemenhub.png" alt="Logo">
+            </td>
+            <td class="kop-judul">
+                <div class="bold">BERKAH AUTO GARAGE</div>
+                <div class="bold">"REMISION"</div>
+                <div style="font-size: 14pt!important;">Bengkel Mobil dan Reparasi</div>
+                <div>Jalan Baru Jadi No. 103, Kota Surabaya, Jawa Timur</div>
+                <div>Tel/Fax: 031-673924212, e-mail: info@remision.my.id</div>
+            </td>
+            <td class="kop-logo">
+                <img src="https://remision.my.id/assets/img/Icon_Remision.png" alt="Logo">
+            </td>
+        </tr>
+    </table>
 
-        <div class="header">
-            <img src="https://remision.my.id/assets/img/Icon_Remision.png" alt="Image" width="auto"
-                style="height: 4.5rem; margin: 0px 5px">
-            <div>
-                <div class="bold">Bengkel Mobil dan Reparasi</div>
-                <div class="bold">"REMISION" </div>
-                <div class="bold">SEKOLAH MENENGAH ATAS (SMA) CENDANA</div>
-                Jalan Cendana No. 9A, Jakarta 20155<br>
-                Tel/Fax: 061 8246940, e-mail: sma_cendana@gmail.com
-            </div>
-        </div>
 
-        <center>
-            <span>
-                <b>
-                    SERTIFIKAT <br> UJI EMISI
-                </b>
-            </span>
-        </center>
-        <p style="margin-top:3rem; margin-bottom: 0.5rem;">
-            Yth. Kepala Dinas Perhubungan,<br>
-            Kab. Sidoarjo<br>
-            di Tempat<br><br>
+    <div class="line"></div>
 
-            Sehubungan dengan telah diberlakukannya PERMEN LHK REPUBLIK INDONESIA NOMOR 8 TAHUN 2023 TENTANG
-            PENERAPAN BAKU MUTU EMISI KENDARAAN BERMOTOR KATEGORI M, KATEGORI N, KATEGORI O, DAN KATEGORI L.
-            Dengan ini menerangkan bahwa: <br>
-        </p>
-        <table style="border: 0px">
-            <tbody>
-                <tr>
-                    <td>No Uji</td>
-                    <td>: {{ $number }}</td>
-                </tr>
-                <tr>
-                    <td>No Kendaraan</td>
-                    <td>: {{ $license_plate }}</td>
-                </tr>
-                <tr>
-                    <td>Merk</td>
-                    <td>: {{ $brand }}</td>
-                </tr>
-                <tr>
-                    <td>Tahun Produksi</td>
-                    <td>: {{ $year }}</td>
-                </tr>
-                <tr>
-                    <td>Tanggal</td>
-                    <td>: {{ $date }}</td>
-                </tr>
-            </tbody>
-        </table>
+    <center>
+        <span style="font-size: 14pt!important">
+            <b>
+                SERTIFIKAT UJI EMISI
+                <br>
+            </b>
+        </span>
+    </center>
 
-        <p style="margin-top:2rem; margin-bottom: 0.5rem;">
-            Telah mengikuti uji emisi di Pelaksana Uji Emisi "REMISION", kendaraan
-            bermotor tersebut memenuhi ambang batas emisi gas buang dan dinyatakan
-            <b>{{ $result }}</b> dengan indeks emisi:
-        </p>
-        <table>
-            <thead>
-                <tr>
-                    <th style="text-align: center; border: 2px solid">
-                        O2
-                    </th>
-                    <th style="text-align: center; border: 2px solid">
-                        CO2
-                    </th>
-                    <th style="text-align: center; border: 2px solid">
-                        CO
-                    </th>
-                    <th style="text-align: center; border: 2px solid">
-                        HC
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td width="25%" style="text-align: center; border: 2px solid #fff">{{ $O2 }}</td>
-                    <td width="25%" style="text-align: center; border: 2px solid #fff">{{ $CO2 }}</td>
-                    <td width="25%" style="text-align: center; border: 2px solid #fff">{{ $CO }}</td>
-                    <td width="25%" style="text-align: center; border: 2px solid #fff">{{ $HC }}</td>
-                </tr>
-            </tbody>
-        </table>
-
-        <div class="footer" style="margin-top: 2rem">
-            <p style="margin: 0px !important;">Copyright &copy; {{ date('Y') }} REMISION (Reduce Emision with IoT
-                Solution). All rights reserved.</p>
-            <p style="margin: 0px !important;">Untuk informasi lebih lanjut, kunjungi <a
-                    href="https://remision.my.id/">website kami</a>.</p>
-        </div>
+    <div style="text-align: right; margin-top:5px">
+        Jakarta, {{ $now }}
     </div>
 
+    <table style="margin-top: 10px;">
+        <tr>
+            <td>No</td>
+            <td>: {{ $number }}</td>
+        </tr>
+        <tr>
+            <td>Lamp</td>
+            <td>: -</td>
+        </tr>
+        <tr>
+            <td>Hal</td>
+            <td>: Laporan Uji Emisi</td>
+        </tr>
+    </table>
 
+    <p style="margin-top:3rem; margin-bottom: 0px!important;">
+        Yth. Kepala Dinas Perhubungan,<br>
+        Kab. Sidoarjo<br>
+        di Tempat<br>
+    </p>
+    <p style="text-indent: 2em; margin-top: 5px!important">
+        Sehubungan dengan telah diberlakukannya PERMEN LHK REPUBLIK INDONESIA NOMOR 8 TAHUN 2023 TENTANG
+        PENERAPAN BAKU MUTU EMISI KENDARAAN BERMOTOR KATEGORI M, KATEGORI N, KATEGORI O, DAN KATEGORI L.
+        Dengan ini menerangkan bahwa:
+    </p>
+    <table style="border: 0px">
+        <tbody>
+            <tr>
+                <td>Tahun Produksi</td>
+                <td>: {{ $year }}</td>
+            </tr>
+            <tr>
+                <td>No Kendaraan</td>
+                <td>: {{ $license_plate }}</td>
+            </tr>
+            <tr>
+                <td>Merk</td>
+                <td>: {{ $brand }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p style="margin-top:0.5rem; margin-bottom: 0.5rem;">
+        Telah mengikuti uji emisi pada {{ $date }} di Pelaksana Uji Emisi "REMISION", kendaraan
+        bermotor tersebut memenuhi ambang batas emisi gas buang dan dinyatakan
+        <b>{{ $result }}</b> dengan indeks emisi:
+    </p>
+
+    <table class="tabel-emisi">
+        <thead>
+            <tr>
+                <th>O2</th>
+                <th>CO2</th>
+                <th>CO</th>
+                <th>HC</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ $O2 }}</td>
+                <td>{{ $CO2 }}</td>
+                <td>{{ $CO }}</td>
+                <td>{{ $HC }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="footer" style="margin-top: 2rem">
+        <p style="margin: 0px !important;">Copyright &copy; {{ date('Y') }} REMISION (Reduce Emision with IoT
+            Solution). All rights reserved.</p>
+        <p style="margin: 0px !important;">Untuk informasi lebih lanjut, kunjungi <a
+                href="https://remision.my.id/">website kami</a>.</p>
+    </div>
 </body>
 
 </html>
