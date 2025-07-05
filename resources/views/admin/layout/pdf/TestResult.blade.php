@@ -51,7 +51,7 @@
 
         .line {
             border-top: 2px solid black;
-            margin: 10px 0 20px;
+            margin: 10px 0 10px;
         }
 
         .footer a {
@@ -102,13 +102,13 @@
 
         .kop-judul {
             font-family: 'Times New Roman', Times, serif;
-            font-size: 14pt;
+            font-size: 10pt;
             line-height: 1.5;
         }
 
         .kop-judul .bold {
             font-weight: bold;
-            font-size: 18pt;
+            font-size: 16pt;
         }
     </style>
 </head>
@@ -122,7 +122,7 @@
             <td class="kop-judul">
                 <div class="bold">BERKAH AUTO GARAGE</div>
                 <div class="bold">"REMISION"</div>
-                <div>Bengkel Mobil dan Reparasi</div>
+                <div style="font-size: 14pt!important;">Bengkel Mobil dan Reparasi</div>
                 <div>Jalan Baru Jadi No. 103, Kota Surabaya, Jawa Timur</div>
                 <div>Tel/Fax: 031-673924212, e-mail: info@remision.my.id</div>
             </td>
@@ -136,16 +136,15 @@
     <div class="line"></div>
 
     <center>
-        <span style="font-size: 18pt!important">
+        <span style="font-size: 14pt!important">
             <b>
                 SERTIFIKAT UJI EMISI
                 <br>
             </b>
         </span>
     </center>
-    <br>
 
-    <div style="text-align: right;">
+    <div style="text-align: right; margin-top:5px">
         Jakarta, {{ $now }}
     </div>
 
@@ -164,17 +163,15 @@
         </tr>
     </table>
 
-    <p style="margin-top:3rem; margin-bottom: 0.5rem;">
+    <p style="margin-top:3rem; margin-bottom: 0px!important;">
         Yth. Kepala Dinas Perhubungan,<br>
         Kab. Sidoarjo<br>
         di Tempat<br><br>
-
+    </p>
     <p style="text-indent: 2em;">
         Sehubungan dengan telah diberlakukannya PERMEN LHK REPUBLIK INDONESIA NOMOR 8 TAHUN 2023 TENTANG
         PENERAPAN BAKU MUTU EMISI KENDARAAN BERMOTOR KATEGORI M, KATEGORI N, KATEGORI O, DAN KATEGORI L.
         Dengan ini menerangkan bahwa:
-    </p>
-    <br>
     </p>
     <table style="border: 0px">
         <tbody>
