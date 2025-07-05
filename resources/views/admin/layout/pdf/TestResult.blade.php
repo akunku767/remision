@@ -13,7 +13,7 @@
 
         /* General styles */
         body {
-            margin: 5rem 10rem !important;
+            margin: 3rem 6rem !important;
             padding: 0;
             font-family: 'Times New Roman', Times, serif;
             line-height: 1.6;
