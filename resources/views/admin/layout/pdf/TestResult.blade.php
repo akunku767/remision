@@ -13,7 +13,7 @@
 
         /* General styles */
         body {
-            margin: 50px 0 0 0;
+            margin: 20px 0 0 0;
             padding: 0;
             font-family: 'Times New Roman', Times, serif;
             margin: 40px;
