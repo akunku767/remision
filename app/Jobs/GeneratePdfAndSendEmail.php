@@ -61,6 +61,11 @@ class GeneratePdfAndSendEmail implements ShouldQueue
                 ->text('Ini adalah hasil uji emisi kendaraan Anda. Terima kasih.');
         });
 
+        Log::info('📧 Email berhasil dikirim ke mrifqi767@gmail.com oleh job GeneratePdfAndSendEmail.', [
+            'user_id' => $this->user->id ?? null,
+            'timestamp' => now()->toDateTimeString()
+        ]);
+
         // Hapus file PDF setelah email terkirim
         // unlink($filePath);
     }
