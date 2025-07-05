@@ -28,6 +28,8 @@
                                         <th>No</th>
                                         <th>License Number</th>
                                         <th>Brand</th>
+                                        <th>O2</th>
+                                        <th>CO2</th>
                                         <th>CO</th>
                                         <th>HC</th>
                                         <th>Result</th>
@@ -40,199 +42,6 @@
                             </table>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="addVehicleModal" tabindex="-1" role="dialog" aria-labelledby="addVehicleModalTitle"
-        aria-hidden="true" data-bs-backdrop="static">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="addVehicleModalTitle"><b>Tambah kendaraan</b></h5>
-                    <button type="button" id="btnCloseAdd" class="btn-close text-dark" data-bs-dismiss="modal"
-                        aria-label="Close" onclick="closeAddModal()">
-                        <span aria-hidden="true">
-                            <i class="fa-solid fa-x"></i>
-                        </span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form action="" method="POST" id="formaddVehicle" class="row" enctype="multipart/form-data">
-                        <input type="hidden" name="_token" id="tokenCreate" value="{{ csrf_token() }}"
-                            autocomplete="off">
-                        <div class="form-group col-12 col-md-6 col-lg-6">
-                            <label for="licensePlateCreate" class="col-form-label">Plat Nomor:</label>
-                            <div class="row px-2">
-                                <div class="col-3 px-0">
-                                    <input type="text" class="form-control" name="licensePlateA" id="licensePlateACreate"
-                                        placeholder="B">
-                                </div>
-                                <div class="col-6 px-1">
-                                    <input type="number" class="form-control" name="licensePlateNumber"
-                                        id="licensePlateNumberCreate" placeholder="2383">
-                                </div>
-                                <div class="col-3 px-0">
-                                    <input type="text" class="form-control" name="licensePlateB" id="licensePlateBCreate"
-                                        placeholder="HDI">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group col-12 col-md-6 col-lg-6">
-                            <label for="typeCreate" class="col-form-label">Tipe:</label>
-                            <select name="type" id="typeCreate" class="form-control">
-                                <option value="Motor">Motor</option>
-                                <option value="Mobil">Mobil</option>
-                            </select>
-                        </div>
-                        <div class="form-group col-12 col-md-6 col-lg-6">
-                            <label for="brandCreate" class="col-form-label">Merk:</label>
-                            <input type="text" class="form-control" name="brand" id="brandCreate"
-                                placeholder="Masukkan merk">
-                        </div>
-                        <div class="form-group col-12 col-md-6 col-lg-6">
-                            <label for="productionYearCreate" class="col-form-label">Tahun pembuatan:</label>
-                            <input type="number" class="form-control" name="productionYear" id="productionYearCreate"
-                                placeholder="Masukkan tahun pembuatan">
-                        </div>
-                        <div class="form-group col-12 col-md-6 col-lg-6">
-                            <label for="fuelCreate" class="col-form-label">Bahan bakar:</label>
-                            <select name="fuel" id="fuelCreate" class="form-control">
-                                <option value="Bensin">Bensin</option>
-                                <option value="Solar">Solar</option>
-                            </select>
-                        </div>
-                        <div class="form-group col-12 col-md-6 col-lg-6">
-                            <label for="colorCreate" class="col-form-label">Warna:</label>
-                            <input type="text" class="form-control" name="color" id="colorCreate"
-                                placeholder="Masukkan warna">
-                        </div>
-                        <div class="form-group col-12 col-md-6 col-lg-6">
-                            <label for="chassisNumberCreate" class="col-form-label">Nomor rangka:</label>
-                            <input type="text" class="form-control" name="chassisNumber" id="chassisNumberCreate"
-                                placeholder="Masukkan nomor rangka">
-                        </div>
-                        <div class="form-group col-12 col-md-6 col-lg-6" hidden>
-                            <label for="RFIDCreate" class="col-form-label">RFID:</label>
-                            <input type="text" class="form-control" name="rfid" id="RFIDCreate">
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn bg-gradient-danger" data-bs-dismiss="modal"
-                                id="btnCancelAddModal">Batal</button>
-                            <button type="button" class="btn bg-gradient-primary"
-                                onclick="openTapModal()">Simpan</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <button type="button" id="btnNFCModal" data-bs-toggle="modal" data-bs-target="#tapNFCModal" hidden>..</button>
-    <div class="modal fade" id="tapNFCModal" tabindex="-1" role="dialog" aria-labelledby="tapNFCModalTitle"
-        aria-hidden="true" data-bs-backdrop="static">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" id="btnCloseTapModal" class="btn-close text-dark" data-bs-dismiss="modal"
-                        aria-label="Close" onclick="btnCloseTapModal()">
-                        <span aria-hidden="true">
-                            <i class="fa-solid fa-x"></i>
-                        </span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <center>
-                        <h3 class="text-secondary" id="rfidDisplay">
-                            <i class="fa-brands fa-nfc-directional"></i><br>
-                            Silahkan tap atau tempelkan kartu RFID.
-                        </h3>
-                    </center>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <button type="button" id="btnEditModal" data-bs-toggle="modal" data-bs-target="#editModal" hidden>..</button>
-    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalTitle"
-        aria-hidden="true" data-bs-backdrop="static">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="editModalTitle"><b>Ubah kendaraan</b></h5>
-                    <button type="button" id="btnCloseEdit" class="btn-close text-dark" data-bs-dismiss="modal"
-                        aria-label="Close">
-                        <span aria-hidden="true">
-                            <i class="fa-solid fa-x"></i>
-                        </span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form action="" method="POST" id="formEdit" class="row" enctype="multipart/form-data">
-                        <input type="hidden" name="_token" id="tokenCreate" value="{{ csrf_token() }}"
-                            autocomplete="off">
-                        <div class="form-group col-12 col-md-6 col-lg-6">
-                            <label for="licensePlateEdit" class="col-form-label">Plat Nomor:</label>
-                            <div class="row px-2">
-                                <div class="col-3 px-0">
-                                    <input type="text" class="form-control" name="licensePlateA"
-                                        id="licensePlateAEdit" placeholder="B">
-                                </div>
-                                <div class="col-6 px-1">
-                                    <input type="number" class="form-control" name="licensePlateNumber"
-                                        id="licensePlateNumberEdit" placeholder="2383">
-                                </div>
-                                <div class="col-3 px-0">
-                                    <input type="text" class="form-control" name="licensePlateB"
-                                        id="licensePlateBEdit" placeholder="HDI">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group col-12 col-md-6 col-lg-6">
-                            <label for="typeEdit" class="col-form-label">Tipe:</label>
-                            <select name="type" id="typeEdit" class="form-control">
-                                <option value="Motor">Motor</option>
-                                <option value="Mobil">Mobil</option>
-                            </select>
-                        </div>
-                        <div class="form-group col-12 col-md-6 col-lg-6">
-                            <label for="brandEdit" class="col-form-label">Merk:</label>
-                            <input type="text" class="form-control" name="brand" id="brandEdit"
-                                placeholder="Masukkan merk">
-                        </div>
-                        <div class="form-group col-12 col-md-6 col-lg-6">
-                            <label for="productionYearEdit" class="col-form-label">Tahun pembuatan:</label>
-                            <input type="number" class="form-control" name="productionYear" id="productionYearEdit"
-                                placeholder="Masukkan tahun pembuatan">
-                        </div>
-                        <div class="form-group col-12 col-md-6 col-lg-6">
-                            <label for="fuelEdit" class="col-form-label">Bahan bakar:</label>
-                            <select name="fuel" id="fuelEdit" class="form-control">
-                                <option value="Bensin">Bensin</option>
-                                <option value="Solar">Solar</option>
-                            </select>
-                        </div>
-                        <div class="form-group col-12 col-md-6 col-lg-6">
-                            <label for="colorEdit" class="col-form-label">Warna:</label>
-                            <input type="text" class="form-control" name="color" id="colorEdit"
-                                placeholder="Masukkan warna">
-                        </div>
-                        <div class="form-group col-12 col-md-6 col-lg-6">
-                            <label for="chassisNumberEdit" class="col-form-label">Nomor rangka:</label>
-                            <input type="text" class="form-control" name="chassisNumber" id="chassisNumberEdit"
-                                placeholder="Masukkan nomor rangka">
-                        </div>
-                        <div class="form-group col-12 col-md-6 col-lg-6" hidden>
-                            <label for="RFIDEdit" class="col-form-label">RFID:</label>
-                            <input type="text" class="form-control" name="rfid" id="RFIDEdit">
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn bg-gradient-danger" data-bs-dismiss="modal"
-                                id="btnCancelEdit">Batal</button>
-                            <button type="button" class="btn bg-gradient-primary" id="btnEdit">Simpan</button>
-                        </div>
-                    </form>
                 </div>
             </div>
         </div>
@@ -267,6 +76,20 @@
                     {
                         data: 'brand',
                         name: 'brand'
+                    },
+                    {
+                        data: 'O2',
+                        name: 'O2',
+                        render: function(data, type, row) {
+                            return data + ' %';
+                        }
+                    },
+                    {
+                        data: 'CO2',
+                        name: 'CO2',
+                        render: function(data, type, row) {
+                            return data + ' %';
+                        }
                     },
                     {
                         data: 'CO',

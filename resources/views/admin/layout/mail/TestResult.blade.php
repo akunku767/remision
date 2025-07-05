@@ -10,7 +10,9 @@
         body {
             margin: 50px 0 0 0;
             padding: 0;
-            font-family: Arial, sans-serif;
+            font-family: 'Times New Roman', Times, serif;
+            margin: 40px;
+            line-height: 1.6;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -82,6 +84,21 @@
             background-color: #608544ab;
         }
 
+
+        .bold {
+            font-weight: bold;
+        }
+
+        .header {
+            text-align: center;
+        }
+
+        .header img {
+            width: 80px;
+            float: left;
+            margin-right: 20px;
+        }
+
         /* Footer styles */
         .footer {
             width: 100%;
@@ -109,14 +126,27 @@
 
 <body>
     <div class="card-container">
-        <center>
+        {{-- <center>
             <img src="https://remision.my.id/assets/img/Logo_Kemenhub.png"
                 alt="Image" width="auto" style="height: 4.5rem">
             <img src="https://remision.my.id/assets/img/Logo_Remision.png" alt="Image" width="auto"
                 style="height: 4.5rem; margin: 0px 5px">
-        </center>
+        </center> --}}
+
+        <div class="header">
+            <img src="https://remision.my.id/assets/img/Icon_Remision.png" alt="Image" width="auto"
+                style="height: 4.5rem; margin: 0px 5px">
+            <div>
+                <div class="bold">Bengkel Mobil dan Reparasi</div>
+                <div class="bold">"REMISION" </div>
+                <div class="bold">SEKOLAH MENENGAH ATAS (SMA) CENDANA</div>
+                Jalan Cendana No. 9A, Jakarta 20155<br>
+                Tel/Fax: 061 8246940, e-mail: sma_cendana@gmail.com
+            </div>
+        </div>
+
         <center>
-            <span style="font-family: 'Times New Roman', Times, serif; font-size: 2.5rem;">
+            <span>
                 <b>
                     SERTIFIKAT <br> UJI EMISI
                 </b>
@@ -189,8 +219,10 @@
         </table>
 
         <div class="footer" style="margin-top: 2rem">
-            <p style="margin: 0px !important;">Copyright &copy; {{ date('Y') }} REMISION (Reduce Emision with IoT Solution). All rights reserved.</p>
-            <p style="margin: 0px !important;">Untuk informasi lebih lanjut, kunjungi <a href="https://example.com">website kami</a>.</p>
+            <p style="margin: 0px !important;">Copyright &copy; {{ date('Y') }} REMISION (Reduce Emision with IoT
+                Solution). All rights reserved.</p>
+            <p style="margin: 0px !important;">Untuk informasi lebih lanjut, kunjungi <a
+                    href="https://remision.my.id/">website kami</a>.</p>
         </div>
     </div>
 
