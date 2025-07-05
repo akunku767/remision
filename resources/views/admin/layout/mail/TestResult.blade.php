@@ -110,9 +110,9 @@
 <body>
     <div class="card-container">
         <center>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/1/15/Logo_Kementerian_Perhubungan_Indonesia_%28Kemenhub%29.png"
+            <img src="https://remision.my.id/assets/img/Logo_Kemenhub.png"
                 alt="Image" width="auto" style="height: 4.5rem">
-            <img src="https://amin.it.student.pens.ac.id/logo_remision.png" alt="Image" width="auto"
+            <img src="https://remision.my.id/assets/img/Logo_Remision.png" alt="Image" width="auto"
                 style="height: 4.5rem; margin: 0px 5px">
         </center>
         <center>
@@ -165,6 +165,12 @@
             <thead>
                 <tr>
                     <th style="text-align: center; border: 2px solid">
+                        O2
+                    </th>
+                    <th style="text-align: center; border: 2px solid">
+                        CO2
+                    </th>
+                    <th style="text-align: center; border: 2px solid">
                         CO
                     </th>
                     <th style="text-align: center; border: 2px solid">
@@ -174,6 +180,8 @@
             </thead>
             <tbody>
                 <tr>
+                    <td width="50%" style="text-align: center; border: 2px solid #fff">{{ $O2 }}</td>
+                    <td width="50%" style="text-align: center; border: 2px solid #fff">{{ $CO2 }}</td>
                     <td width="50%" style="text-align: center; border: 2px solid #fff">{{ $CO }}</td>
                     <td width="50%" style="text-align: center; border: 2px solid #fff">{{ $HC }}</td>
                 </tr>

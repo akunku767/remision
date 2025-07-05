@@ -15,7 +15,9 @@ return new class extends Migration
             $table->id()->primary();
             $table->unsignedBigInteger('vehicle_id');
             $table->date('tested_at');
-            $table->integer('CO');
+            $table->double('O2');
+            $table->double('CO2');
+            $table->double('CO');
             $table->integer('HC');
             $table->foreign('vehicle_id')
                 ->references('id')->on('vehicles')->onDelete('cascade');

@@ -18,6 +18,8 @@ class ResultSeeder extends Seeder
         Result::create([
             'vehicle_id' => '1',
             'tested_at' => Carbon::now()->subDays(2),
+            'O2' => '0.4',
+            'CO2' => '0.3',
             'CO' => '3',
             'HC' => '950',
             'reference_number' => mt_rand(1000000000, 9999999999),
@@ -27,6 +29,8 @@ class ResultSeeder extends Seeder
         Result::create([
             'vehicle_id' => '2',
             'tested_at' => Carbon::now()->subDays(1),
+            'O2' => '0.6',
+            'CO2' => '1.2',
             'CO' => '3',
             'HC' => '1000',
             'reference_number' => mt_rand(1000000000, 9999999999),
@@ -36,6 +40,8 @@ class ResultSeeder extends Seeder
         Result::create([
             'vehicle_id' => '3',
             'tested_at' => Carbon::now(),
+            'O2' => '0.4',
+            'CO2' => '0.9',
             'CO' => '2',
             'HC' => '950',
             'reference_number' => mt_rand(1000000000, 9999999999),

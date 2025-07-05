@@ -27,7 +27,6 @@ Route::group(['prefix' => 'pencarian'], function () {
     Route::get('/sertifikat/{chassis}/{identity}', [SearchController::class, 'certificate'])->name('search.certificate');
     Route::get('/{chassis}', [SearchController::class, 'vehicle'])->name('search.vehicle');
     Route::get('/{chassis}/{identity}', [SearchController::class, 'test'])->name('search.test');
-
 });
 
 
