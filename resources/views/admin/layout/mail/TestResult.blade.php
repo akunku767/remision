@@ -180,10 +180,10 @@
             </thead>
             <tbody>
                 <tr>
-                    <td width="50%" style="text-align: center; border: 2px solid #fff">{{ $O2 }}</td>
-                    <td width="50%" style="text-align: center; border: 2px solid #fff">{{ $CO2 }}</td>
-                    <td width="50%" style="text-align: center; border: 2px solid #fff">{{ $CO }}</td>
-                    <td width="50%" style="text-align: center; border: 2px solid #fff">{{ $HC }}</td>
+                    <td width="25%" style="text-align: center; border: 2px solid #fff">{{ $O2 }}</td>
+                    <td width="25%" style="text-align: center; border: 2px solid #fff">{{ $CO2 }}</td>
+                    <td width="25%" style="text-align: center; border: 2px solid #fff">{{ $CO }}</td>
+                    <td width="25%" style="text-align: center; border: 2px solid #fff">{{ $HC }}</td>
                 </tr>
             </tbody>
         </table>

@@ -130,8 +130,8 @@ class ResultController extends BaseController
 
             $data = [
                 'license_plate' => $vehicle->license_plate,
-                'O2' => $request->O2,
-                'CO2' => $request->CO2,
+                'O2' => $request->O2 . ' %',
+                'CO2' => $request->CO2 . ' %',
                 'CO' => $request->CO . ' %',
                 'HC' => $request->HC . ' ppm',
                 'brand' => $vehicle->brand,
