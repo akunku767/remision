@@ -13,7 +13,7 @@
 
         /* General styles */
         body {
-            margin: 1rem 2rem !important;
+            margin: 5rem 10rem !important;
             padding: 0;
             font-family: 'Times New Roman', Times, serif;
             line-height: 1.6;
@@ -37,6 +37,7 @@
 
         .bold {
             font-weight: bold;
+            font-size: 18pt;
         }
 
         .header {
@@ -77,6 +78,11 @@
         .footer a:hover {
             text-decoration: underline;
         }
+
+        .isiJudul {
+            text-align: center;
+            font-size: 14pt;
+        }
     </style>
 </head>
 
@@ -84,12 +90,14 @@
     <div class="header">
         <img src="https://remision.my.id/assets/img/Icon_Remision.png" alt="Image" width="auto"
             style="height: 4.5rem; margin: 0px 5px">
-        <div class="IsiJudul">
+        <div class="isiJudul">
             <div class="bold">BERKAH AUTO GARAGE</div>
             <div class="bold">"REMISION" </div>
-            Bengkel Mobil dan Reparasi<br>
-            Jalan Baru Jadi No. 103, Kota Surabaya, Jawa Timur<br>
-            Tel/Fax: 031-673924212, e-mail: info@remision.my.id
+            <div>
+                Bengkel Mobil dan Reparasi<br>
+                Jalan Baru Jadi No. 103, Kota Surabaya, Jawa Timur<br>
+                Tel/Fax: 031-673924212, e-mail: info@remision.my.id
+            </div>
         </div>
     </div>
 
@@ -105,7 +113,7 @@
     </center>
 
     <div style="text-align: right;">
-        Jakarta, 25 Juni 2019
+        Jakarta, {{ now }}
     </div>
 
     <table style="margin-top: 10px;">
@@ -135,6 +143,10 @@
     <table style="border: 0px">
         <tbody>
             <tr>
+                <td>Tahun Produksi</td>
+                <td>: {{ $year }}</td>
+            </tr>
+            <tr>
                 <td>No Kendaraan</td>
                 <td>: {{ $license_plate }}</td>
             </tr>
@@ -142,41 +154,37 @@
                 <td>Merk</td>
                 <td>: {{ $brand }}</td>
             </tr>
-            <tr>
-                <td>Tahun Produksi</td>
-                <td>: {{ $year }}</td>
-            </tr>
         </tbody>
     </table>
 
-    <p style="margin-top:2rem; margin-bottom: 0.5rem;">
+    <p style="margin-top:0.5rem; margin-bottom: 0.5rem;">
         Telah mengikuti uji emisi pada {{ $date }}di Pelaksana Uji Emisi "REMISION", kendaraan
         bermotor tersebut memenuhi ambang batas emisi gas buang dan dinyatakan
         <b>{{ $result }}</b> dengan indeks emisi:
     </p>
-    <table>
+    <table style="text-align: center; border: 1px solid #000">
         <thead>
             <tr>
-                <th style="text-align: center; border: 2px solid">
+                <th>
                     O2
                 </th>
-                <th style="text-align: center; border: 2px solid">
+                <th>
                     CO2
                 </th>
-                <th style="text-align: center; border: 2px solid">
+                <th>
                     CO
                 </th>
-                <th style="text-align: center; border: 2px solid">
+                <th>
                     HC
                 </th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td width="25%" style="text-align: center; border: 2px solid #fff">{{ $O2 }}</td>
-                <td width="25%" style="text-align: center; border: 2px solid #fff">{{ $CO2 }}</td>
-                <td width="25%" style="text-align: center; border: 2px solid #fff">{{ $CO }}</td>
-                <td width="25%" style="text-align: center; border: 2px solid #fff">{{ $HC }}</td>
+                <td width="25%">{{ $O2 }}</td>
+                <td width="25%">{{ $CO2 }}</td>
+                <td width="25%">{{ $CO }}</td>
+                <td width="25%">{{ $HC }}</td>
             </tr>
         </tbody>
     </table>

@@ -51,6 +51,7 @@ class ResultController extends Controller
 
     public function download(string $identity)
     {
+        Carbon::setLocale('id');
         $result = Result::where('identity', $identity)->first();
 
         if (!$result) {
@@ -66,35 +67,22 @@ class ResultController extends Controller
         $HC = $vehicle->threshold->HC;
 
         // Cek apakah hasil uji emisi LULUS atau TIDAK
-        if ($result->CO <= $CO && $result->HC <= $HC) {
-            $data = [
-                'license_plate' => $vehicle->license_plate,
-                'year' => $year,
-                'user' => $user,
-                'O2' => $result->O2 . ' %',
-                'CO2' => $result->CO2 . ' %',
-                'CO' => $result->CO . ' %',
-                'HC' => $result->HC . ' ppm',
-                'result' => 'LULUS',
-                'brand' => $vehicle->brand,
-                'date' => $result->tested_at,
-                'number' => Carbon::parse($result->tested_at)->format('Y/m/') . "EMISI/II" . Carbon::parse($result->tested_at)->format('/d') . "/" . $result->reference_number,
-            ];
-        } else {
-            $data = [
-                'license_plate' => $vehicle->license_plate,
-                'year' => $year,
-                'user' => $user,
-                'O2' => $result->O2 . ' %',
-                'CO2' => $result->CO2 . ' %',
-                'CO' => $result->CO . ' %',
-                'HC' => $result->HC . ' ppm',
-                'result' => 'TIDAK LULUS',
-                'brand' => $vehicle->brand,
-                'date' => Carbon::parse($result->tested_at)->format('d-m-Y'),
-                'number' => Carbon::parse($result->tested_at)->format('Y/m/') . "EMISI/II" . Carbon::parse($result->tested_at)->format('/d') . "/" . $result->reference_number,
-            ];
-        }
+        $status = ($result->CO <= $CO && $result->HC <= $HC) ? 'LULUS' : 'TIDAK LULUS';
+
+        $data = [
+            'license_plate' => $vehicle->license_plate,
+            'year' => $year,
+            'user' => $user,
+            'O2' => $result->O2 . ' %',
+            'CO2' => $result->CO2 . ' %',
+            'CO' => $result->CO . ' %',
+            'HC' => $result->HC . ' ppm',
+            'result' => $status,
+            'brand' => $vehicle->brand,
+            'date' => Carbon::parse($result->tested_at)->format('d-m-Y'),
+            'now' => Carbon::now()->translatedFormat('d F Y'),
+            'number' => Carbon::parse($result->tested_at)->format('Y/m/') . "EMISI/II" . Carbon::parse($result->tested_at)->format('/d') . "/" . $result->reference_number,
+        ];
 
         // Generate PDF
         $pdf = Pdf::loadView('admin.layout.pdf.TestResult', $data)
