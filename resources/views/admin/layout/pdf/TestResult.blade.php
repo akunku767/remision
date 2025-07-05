@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Test Result</title>
     <style>
+        @page {
+            margin: 20mm 25mm 20mm 25mm;
+            /* top right bottom left */
+        }
+
         /* General styles */
         body {
             margin: 50px 0 0 0;
