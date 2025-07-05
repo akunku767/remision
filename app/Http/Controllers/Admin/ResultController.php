@@ -85,7 +85,7 @@ class ResultController extends Controller
             'result' => $status,
             'brand' => $vehicle->brand,
             'production_year' => $vehicle->productionYear,
-            'base64Qr' => $base64Qr,
+            'qrCode' => $qrCode,
             'date' => Carbon::parse($result->tested_at)->translatedFormat('d F Y'),
             'now' => Carbon::now()->translatedFormat('d F Y'),
             'number' => Carbon::parse($result->tested_at)->format('Y/m/') . "EMISI/II" . Carbon::parse($result->tested_at)->format('/d') . "/" . $result->reference_number,

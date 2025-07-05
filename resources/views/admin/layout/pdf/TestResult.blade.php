@@ -208,8 +208,7 @@
                 <td style="width: 60%">
                 </td>
                 <td style="width: 40%; text-align: center;">
-                    {{-- <img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(200)->generate($qrcode)) !!} "> --}}
-                    {{QrCode::format('png')->size(80)->generate($qrcode);}}
+                    <img src="{{ $qrCode }}" style="max-width: 80px;">
                 </td>
             </tr>
             <tr>
@@ -220,8 +219,6 @@
                 </td>
             </tr>
         </table>
-
-        
     </div>
 </body>
 
