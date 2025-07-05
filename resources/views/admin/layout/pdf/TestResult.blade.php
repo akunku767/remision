@@ -13,7 +13,7 @@
 
         /* General styles */
         body {
-            margin: 3rem 6rem !important;
+            margin: 3rem 5rem !important;
             padding: 0;
             font-family: 'Times New Roman', Times, serif;
             line-height: 1.6;
@@ -91,13 +91,15 @@
         <img src="https://remision.my.id/assets/img/Icon_Remision.png" alt="Image" width="auto"
             style="height: 4.5rem; margin: 0px 5px">
         <div class="isiJudul">
-            <div class="bold">BERKAH AUTO GARAGE</div>
-            <div class="bold">"REMISION" </div>
-            <div>
-                Bengkel Mobil dan Reparasi<br>
-                Jalan Baru Jadi No. 103, Kota Surabaya, Jawa Timur<br>
-                Tel/Fax: 031-673924212, e-mail: info@remision.my.id
-            </div>
+            <center>
+                <div class="bold">BERKAH AUTO GARAGE</div>
+                <div class="bold">"REMISION" </div>
+                <div style="font-size: 12pt!important">
+                    Bengkel Mobil dan Reparasi<br>
+                    Jalan Baru Jadi No. 103, Kota Surabaya, Jawa Timur<br>
+                    Tel/Fax: 031-673924212, e-mail: info@remision.my.id
+                </div>
+            </center>
         </div>
     </div>
 
@@ -136,9 +138,12 @@
         Kab. Sidoarjo<br>
         di Tempat<br><br>
 
+    <p style="text-indent: 2em;">
         Sehubungan dengan telah diberlakukannya PERMEN LHK REPUBLIK INDONESIA NOMOR 8 TAHUN 2023 TENTANG
         PENERAPAN BAKU MUTU EMISI KENDARAAN BERMOTOR KATEGORI M, KATEGORI N, KATEGORI O, DAN KATEGORI L.
-        Dengan ini menerangkan bahwa: <br>
+        Dengan ini menerangkan bahwa:
+    </p>
+    <br>
     </p>
     <table style="border: 0px">
         <tbody>
