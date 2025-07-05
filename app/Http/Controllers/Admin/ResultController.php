@@ -91,7 +91,7 @@ class ResultController extends Controller
                 'HC' => $result->HC . ' ppm',
                 'result' => 'TIDAK LULUS',
                 'brand' => $vehicle->brand,
-                'date' => $result->tested_at,
+                'date' => Carbon::parse($result->tested_at)->format('d-m-Y'),
                 'number' => Carbon::parse($result->tested_at)->format('Y/m/') . "EMISI/II" . Carbon::parse($result->tested_at)->format('/d') . "/" . $result->reference_number,
             ];
         }
