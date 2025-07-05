@@ -63,28 +63,9 @@
             text-decoration: underline;
         }
 
-        .header {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            /* rata tengah terhadap halaman */
-            gap: 20px;
-            /* jarak antara logo dan teks */
-            margin-bottom: 1rem;
-        }
-
         .header img {
             width: 80px;
             height: auto;
-        }
-
-        .isiJudul {
-            text-align: center;
-        }
-
-        .bold {
-            font-weight: bold;
-            font-size: 18pt;
         }
 
         .tabel-emisi {
@@ -97,21 +78,42 @@
         .tabel-emisi td {
             border: 1px solid #000;
             padding: 5px;
+            width: 25%
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            /* ini yang membuat vertikalnya sejajar */
+            gap: 20px;
+            margin-bottom: 1rem;
+        }
+
+        .logo {
+            height: 80px;
+        }
+
+        .isi-judul {
+            text-align: center;
+            flex: 1;
+        }
+
+        .bold {
+            font-weight: bold;
+            font-size: 18pt;
         }
     </style>
 </head>
 
 <body>
     <div class="header">
-        <img src="https://remision.my.id/assets/img/Icon_Remision.png" alt="Logo">
-        <div class="isiJudul">
+        <img src="https://remision.my.id/assets/img/Icon_Remision.png" alt="Logo" class="logo">
+        <div class="isi-judul">
             <div class="bold">BERKAH AUTO GARAGE</div>
             <div class="bold">"REMISION"</div>
-            <div style="font-size: 12pt">
-                Bengkel Mobil dan Reparasi<br>
-                Jalan Baru Jadi No. 103, Kota Surabaya, Jawa Timur<br>
-                Tel/Fax: 031-673924212, e-mail: info@remision.my.id
-            </div>
+            <div>Bengkel Mobil dan Reparasi</div>
+            <div>Jalan Baru Jadi No. 103, Kota Surabaya, Jawa Timur</div>
+            <div>Tel/Fax: 031-673924212, e-mail: info@remision.my.id</div>
         </div>
     </div>
 
