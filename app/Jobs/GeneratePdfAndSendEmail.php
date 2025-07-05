@@ -9,6 +9,10 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Log;
+use Monolog\Level;
+use Monolog\Logger;
+use Monolog\Handler\StreamHandler;
+
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Str;
 
@@ -61,10 +65,15 @@ class GeneratePdfAndSendEmail implements ShouldQueue
                 ->setBody('Ini adalah hasil uji emisi kendaraan Anda. Terima kasih.', 'text/plain');
         });
 
-        Log::info('📧 Email berhasil dikirim ke: mrifqi767@gmail.com dan file PDF berhasil dihapus.', [
+        // Log ke file khusus
+        $logger = new Logger('cronqueue');
+        $logger->pushHandler(new StreamHandler(storage_path('logs/cronqueue.log'), Level::Info));
+        $logger->log(Level::Info, '📧 Email berhasil dikirim dan PDF berhasil dihapus.', [
+            'to' => 'mrifqi767@gmail.com',
             'user_id' => $this->user->id ?? null,
             'timestamp' => now(),
         ]);
+
 
 
         // Hapus file PDF setelah email terkirim
