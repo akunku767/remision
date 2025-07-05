@@ -53,10 +53,10 @@
 
 <body>
     <center>
-        <img src="https://remision.my.id/assets/img/Logo_Remision.png" style="max-height: 40px;">
+        <img src="https://remision.my.id/assets/img/Logo_Remision.png" style="max-height: 100px;">
     </center>
 
-    <p style="margin-top:4rem; margin-bottom: 0;">
+    <p style="margin-top:2rem; margin-bottom: 0;">
         Yth. Pemilik kendaraan,<br>
         {{ $brand }} ({{ $license_plate }})<br>
         di Tempat<br>
