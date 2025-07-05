@@ -63,11 +63,6 @@
             text-decoration: underline;
         }
 
-        .header img {
-            width: 80px;
-            height: auto;
-        }
-
         .tabel-emisi {
             width: 100%;
             border-collapse: collapse;
@@ -89,13 +84,40 @@
             margin-bottom: 1rem;
         }
 
-        .logo {
-            height: 80px;
-        }
-
         .isi-judul {
             text-align: center;
             flex: 1;
+        }
+
+        .kop-surat {
+            display: flex;
+            align-items: center;
+            /* Vertikal tengah */
+            justify-content: center;
+            /* Horizontal tengah */
+            gap: 20px;
+            margin-bottom: 1rem;
+        }
+
+        .logo-kiri,
+        .logo-kanan {
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-kiri img,
+        .logo-kanan img {
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .judul-kop {
+            flex: 1;
+            text-align: center;
+            font-size: 14pt;
         }
 
         .bold {
@@ -106,16 +128,23 @@
 </head>
 
 <body>
-    <div class="header">
-        <img src="https://remision.my.id/assets/img/Icon_Remision.png" alt="Logo" class="logo">
-        <div class="isi-judul">
+    <div class="kop-surat">
+        <div class="logo-kiri">
+            <img src="https://remision.my.id/assets/img/Icon_Remision.png" alt="Logo Kiri">
+        </div>
+        <div class="judul-kop">
             <div class="bold">BERKAH AUTO GARAGE</div>
             <div class="bold">"REMISION"</div>
             <div>Bengkel Mobil dan Reparasi</div>
             <div>Jalan Baru Jadi No. 103, Kota Surabaya, Jawa Timur</div>
             <div>Tel/Fax: 031-673924212, e-mail: info@remision.my.id</div>
         </div>
+        <div class="logo-kanan">
+            <!-- Optional: Tambahkan logo kanan jika perlu -->
+            <img src="https://remision.my.id/assets/img/Logo_Kemenhub.png" alt="Logo Kanan">
+        </div>
     </div>
+
 
     <div class="line"></div>
 
