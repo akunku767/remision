@@ -112,6 +112,7 @@ class ResultController extends BaseController
     {
         $tested_at = Carbon::now();
         $reff_num = mt_rand(1000000000, 9999999999);
+        $identity = Str::random(10);
         $create = Result::create([
             'vehicle_id' => $request->vehicle_id,
             'tested_at' => $tested_at,
@@ -120,17 +121,15 @@ class ResultController extends BaseController
             'CO' => $request->CO,
             'HC' => $request->HC,
             'reference_number' => $reff_num,
-            'identity' => Str::random(10),
+            'identity' => $identity,
         ]);
 
         if ($create) {
             $vehicle = $create->vehicle;
             $user = $vehicle->user;
-            $CO = $vehicle->threshold->CO;
-            $HC = $vehicle->threshold->HC;
 
             $qrCode = 'data:image/svg+xml;base64,' . base64_encode(
-                QrCode::format('svg')->size(80)->generate(route('user.result.download', $result->identity))
+                QrCode::format('svg')->size(80)->generate(route('user.result.download', $identity))
             );
 
             $data = [
