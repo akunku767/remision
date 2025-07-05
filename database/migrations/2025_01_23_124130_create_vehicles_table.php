@@ -12,14 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('vehicles', function (Blueprint $table) {
-            $table->id()->primary();
+            $table->id();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('threshold_id');
             $table->string('rfid');
             $table->string('license_plate', 12);
             $table->enum('category', ['Sepeda Motor 2 langkah','Sepeda Motor 4 langkah','Sepeda Motor', 'Mobil Penumpang', 'Mobil Barang', 'Truck']);
             $table->string('brand', 50);
-            $table->integer('production_year', 6);
+            $table->integer('production_year');
             $table->enum('fuel', ['Bensin', 'Solar']);
             $table->string('color', 50);
             $table->string('chassis_number', 50);
@@ -37,6 +37,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('cars');
+        Schema::dropIfExists('vehicles');
     }
 };
