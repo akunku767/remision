@@ -36,9 +36,7 @@
         }
 
         /* Footer styles */
-        .footer {
-            
-        }
+        .footer {}
 
         .line {
             border-top: 2px solid black;
@@ -173,7 +171,7 @@
 
     <p style="margin-top:0.5rem; margin-bottom: 0.5rem;">
         Telah mengikuti uji emisi pada {{ $date }} di bengkel kami, dan
-         dinyatakan <b>{{ $result }}</b> ambang batas emisi gas buang dengan indeks emisi:
+        dinyatakan <b>{{ $result }}</b> ambang batas emisi gas buang dengan indeks emisi:
     </p>
 
     <table class="tabel-emisi">
@@ -196,29 +194,27 @@
     </table>
 
     <div class="footer" style="margin-top: 2rem">
-        <table>
+        <table style="width: 100%;">
             <tr>
-                <td style="width: 60%">
-                </td>
+                <td style="width: 60%;">&nbsp;</td>
                 <td style="width: 40%; text-align: center;">
                     Hormat kami,
                 </td>
             </tr>
             <tr>
-                <td style="width: 60%">
-                </td>
+                <td style="width: 60%;">&nbsp;</td>
                 <td style="width: 40%; text-align: center;">
                     <img src="{{ $qrCode }}" style="max-width: 80px;">
                 </td>
             </tr>
             <tr>
-                <td style="width: 60%">
-                </td>
+                <td style="width: 60%;">&nbsp;</td>
                 <td style="width: 40%; text-align: center;">
                     Berkah Auto Garage
                 </td>
             </tr>
         </table>
+
     </div>
 </body>
 
