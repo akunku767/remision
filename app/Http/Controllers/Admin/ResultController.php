@@ -39,7 +39,7 @@ class ResultController extends Controller
                     $HC = $vehicle->threshold->HC;
                     if ($result->CO <= $CO && $result->HC <= $HC) {
                         return "Passed";
-                    }else{
+                    } else {
                         return "Not Pass";
                     };
                 })
@@ -99,7 +99,14 @@ class ResultController extends Controller
         // Generate PDF
         $pdf = Pdf::loadView('admin.layout.pdf.TestResult', $data)
             ->setPaper('A4', 'portrait')
-            ->setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true]);
+            ->setOptions([
+                'isHtml5ParserEnabled' => true,
+                'isRemoteEnabled' => true,
+                'margin-top' => 0,
+                'margin-bottom' => 0,
+                'margin-left' => 0,
+                'margin-right' => 0
+            ]);
 
         // Nama file PDF
         $pdfFileName = 'Result_' . $vehicle->license_plate . '_' . Carbon::parse($result->tested_at)->format('d_m_Y') . '.pdf';

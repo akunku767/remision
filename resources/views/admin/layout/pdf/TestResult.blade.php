@@ -7,7 +7,8 @@
     <title>Test Result</title>
     <style>
         @page {
-            margin: 15mm 25mm 15mm 25mm;
+            /* margin: 15mm 25mm 15mm 25mm; */
+            margin: 0px !important;
             /* top right bottom left */
         }
 
