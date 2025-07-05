@@ -35,11 +35,6 @@
             text-align: justify;
         }
 
-        .bold {
-            font-weight: bold;
-            font-size: 18pt;
-        }
-
         /* Footer styles */
         .footer {
             width: 100%;
@@ -72,8 +67,9 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            text-align: center;
-            gap: 1rem;
+            /* rata tengah terhadap halaman */
+            gap: 20px;
+            /* jarak antara logo dan teks */
             margin-bottom: 1rem;
         }
 
@@ -83,26 +79,39 @@
         }
 
         .isiJudul {
-            font-size: 14pt;
-            flex: 1;
+            text-align: center;
+        }
+
+        .bold {
+            font-weight: bold;
+            font-size: 18pt;
+        }
+
+        .tabel-emisi {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        .tabel-emisi th,
+        .tabel-emisi td {
+            border: 1px solid #000;
+            padding: 5px;
         }
     </style>
 </head>
 
 <body>
     <div class="header">
-        <img src="https://remision.my.id/assets/img/Icon_Remision.png" alt="Image" width="auto"
-            style="height: 4.5rem; margin: 0px 5px">
+        <img src="https://remision.my.id/assets/img/Icon_Remision.png" alt="Logo">
         <div class="isiJudul">
-            <center>
-                <div class="bold">BERKAH AUTO GARAGE</div>
-                <div class="bold">"REMISION" </div>
-                <div style="font-size: 12pt!important">
-                    Bengkel Mobil dan Reparasi<br>
-                    Jalan Baru Jadi No. 103, Kota Surabaya, Jawa Timur<br>
-                    Tel/Fax: 031-673924212, e-mail: info@remision.my.id
-                </div>
-            </center>
+            <div class="bold">BERKAH AUTO GARAGE</div>
+            <div class="bold">"REMISION"</div>
+            <div style="font-size: 12pt">
+                Bengkel Mobil dan Reparasi<br>
+                Jalan Baru Jadi No. 103, Kota Surabaya, Jawa Timur<br>
+                Tel/Fax: 031-673924212, e-mail: info@remision.my.id
+            </div>
         </div>
     </div>
 
@@ -167,33 +176,26 @@
     </table>
 
     <p style="margin-top:0.5rem; margin-bottom: 0.5rem;">
-        Telah mengikuti uji emisi pada {{ $date }}di Pelaksana Uji Emisi "REMISION", kendaraan
+        Telah mengikuti uji emisi pada {{ $date }} di Pelaksana Uji Emisi "REMISION", kendaraan
         bermotor tersebut memenuhi ambang batas emisi gas buang dan dinyatakan
         <b>{{ $result }}</b> dengan indeks emisi:
     </p>
-    <table style="text-align: center; border: 1px solid #000">
+
+    <table class="tabel-emisi">
         <thead>
             <tr>
-                <th>
-                    O2
-                </th>
-                <th>
-                    CO2
-                </th>
-                <th>
-                    CO
-                </th>
-                <th>
-                    HC
-                </th>
+                <th>O2</th>
+                <th>CO2</th>
+                <th>CO</th>
+                <th>HC</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td width="25%">{{ $O2 }}</td>
-                <td width="25%">{{ $CO2 }}</td>
-                <td width="25%">{{ $CO }}</td>
-                <td width="25%">{{ $HC }}</td>
+                <td>{{ $O2 }}</td>
+                <td>{{ $CO2 }}</td>
+                <td>{{ $CO }}</td>
+                <td>{{ $HC }}</td>
             </tr>
         </tbody>
     </table>
