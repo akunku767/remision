@@ -1,0 +1,5 @@
+vendor
+.idea
+workbench
+.phpunit.result.cache
+composer.lock
