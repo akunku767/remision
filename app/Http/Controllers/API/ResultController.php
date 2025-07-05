@@ -112,7 +112,6 @@ class ResultController extends BaseController
     {
         $tested_at = Carbon::now();
         $reff_num = mt_rand(1000000000, 9999999999);
-        $identity = Str::random(10);
         $create = Result::create([
             'vehicle_id' => $request->vehicle_id,
             'tested_at' => $tested_at,
@@ -121,22 +120,37 @@ class ResultController extends BaseController
             'CO' => $request->CO,
             'HC' => $request->HC,
             'reference_number' => $reff_num,
-            'identity' => $identity,
+            'identity' => Str::random(10),
         ]);
 
         if ($create) {
             $vehicle = $create->vehicle;
             $user = $vehicle->user;
+            $year = \Carbon\Carbon::parse($create->tested_at)->format('Y');
+            $CO = $vehicle->threshold->CO;
+            $HC = $vehicle->threshold->HC;
 
             $qrCode = 'data:image/svg+xml;base64,' . base64_encode(
-                QrCode::format('svg')->size(80)->generate(route('user.result.download', $identity))
+                QrCode::format('svg')->size(80)->generate(route('user.result.download', $create->identity))
             );
 
+            $status = ($create->CO <= $CO && $create->HC <= $HC) ? 'LULUS' : 'TIDAK LULUS';
+
             $data = [
-                'qrCode' => $qrCode,
                 'license_plate' => $vehicle->license_plate,
+                'year' => $year,
+                'user' => $user,
+                'O2' => $create->O2 . ' %',
+                'CO2' => $create->CO2 . ' %',
+                'CO' => $create->CO . ' %',
+                'HC' => $create->HC . ' ppm',
+                'result' => $status,
                 'brand' => $vehicle->brand,
-                'date' => $tested_at,
+                'production_year' => $vehicle->production_year,
+                'qrCode' => $qrCode,
+                'date' => Carbon::parse($create->tested_at)->translatedFormat('d F Y'),
+                'now' => Carbon::now()->translatedFormat('d F Y'),
+                'number' => Carbon::parse($create->tested_at)->format('Y/m/') . "EMISI/II" . Carbon::parse($create->tested_at)->format('/d') . "/" . $create->reference_number,
             ];
 
             // Dispatch job ke queue

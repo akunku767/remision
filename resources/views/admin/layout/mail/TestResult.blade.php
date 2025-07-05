@@ -53,7 +53,7 @@
 
 <body>
     <center>
-        <img src="{{ $qrCode }}" style="max-width: 80px;">
+        <img src="https://remision.my.id/assets/img/Logo_Remision.png" style="max-height: 40px;">
     </center>
 
     <p style="margin-top:4rem; margin-bottom: 0;">
