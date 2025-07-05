@@ -84,7 +84,7 @@ class ResultController extends Controller
             'HC' => $result->HC . ' ppm',
             'result' => $status,
             'brand' => $vehicle->brand,
-            'production_year' => $vehicle->productionYear,
+            'production_year' => $vehicle->production_year,
             'qrCode' => $qrCode,
             'date' => Carbon::parse($result->tested_at)->translatedFormat('d F Y'),
             'now' => Carbon::now()->translatedFormat('d F Y'),
