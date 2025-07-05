@@ -34,32 +34,32 @@ class GeneratePdfAndSendEmail implements ShouldQueue
     public function handle()
     {
         // Generate PDF
-        // $pdf = Pdf::loadView('admin.layout.pdf.TestResult', $this->data)
-        //     ->setPaper('A4', 'portrait')
-        //     ->setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true]);
+        $pdf = Pdf::loadView('admin.layout.pdf.TestResult', $this->data)
+            ->setPaper('A4', 'portrait')
+            ->setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true]);
 
-        // // Simpan PDF di folder `public/`
-        // $pdfFileName = 'TestResult_' . Str::random(10) . '.pdf';
-        // $filePath = public_path($pdfFileName); // Simpan langsung di public/
+        // Simpan PDF di folder `public/`
+        $pdfFileName = 'TestResult_' . Str::random(10) . '.pdf';
+        $filePath = public_path($pdfFileName); // Simpan langsung di public/
 
-        // file_put_contents($filePath, $pdf->output());
+        file_put_contents($filePath, $pdf->output());
 
-        // Kirim email dengan lampiran PDF
-        // Mail::send([], [], function ($message) use ($filePath, $pdfFileName) {
-        //     $message->to($this->user->email)
-        //         ->subject('Hasil Uji Emisi')
-        //         ->html(view('admin.layout.mail.TestResult', $this->data)->render())
-        //         ->attach($filePath, [ // PAKAI $filePath, BUKAN storage_path()
-        //             'as' => $pdfFileName,
-        //             'mime' => 'application/pdf'
-        //         ]);
-        // });
-
-        Mail::send([], [], function ($message) {
-            $message->to('mrifqi767@gmail.com')
+        Kirim email dengan lampiran PDF
+        Mail::send([], [], function ($message) use ($filePath, $pdfFileName) {
+            $message->to($this->user->email)
                 ->subject('Hasil Uji Emisi')
-                ->text('Ini adalah hasil uji emisi kendaraan Anda. Terima kasih.');
+                ->html(view('admin.layout.mail.TestResult', $this->data)->render())
+                ->attach($filePath, [ // PAKAI $filePath, BUKAN storage_path()
+                    'as' => $pdfFileName,
+                    'mime' => 'application/pdf'
+                ]);
         });
+
+        // Mail::send([], [], function ($message) {
+        //     $message->to('mrifqi767@gmail.com')
+        //         ->subject('Hasil Uji Emisi')
+        //         ->text('Ini adalah hasil uji emisi kendaraan Anda. Terima kasih.');
+        // });
 
         Log::info('📧 Email berhasil dikirim ke mrifqi767@gmail.com oleh job GeneratePdfAndSendEmail.', [
             'user_id' => $this->user->id ?? null,
