@@ -44,7 +44,7 @@ class GeneratePdfAndSendEmail implements ShouldQueue
 
         file_put_contents($filePath, $pdf->output());
 
-        Kirim email dengan lampiran PDF
+        // Kirim email dengan lampiran PDF
         Mail::send([], [], function ($message) use ($filePath, $pdfFileName) {
             $message->to($this->user->email)
                 ->subject('Hasil Uji Emisi')
