@@ -67,8 +67,9 @@ class ResultController extends Controller
         $CO = $vehicle->threshold->CO;
         $HC = $vehicle->threshold->HC;
 
-        $qrCode = QrCode::format('png')->size(80)->generate(route('user.result.download', $result->identity));
-        $base64Qr = base64_encode($qrCode);
+        $qrCode = 'data:image/svg+xml;base64,' . base64_encode(
+            QrCode::format('svg')->size(80)->generate(route('user.result.download', $result->identity))
+        );
 
         // Cek apakah hasil uji emisi LULUS atau TIDAK
         $status = ($result->CO <= $CO && $result->HC <= $HC) ? 'LULUS' : 'TIDAK LULUS';
