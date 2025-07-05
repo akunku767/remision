@@ -62,7 +62,7 @@
             background-color: #96000d;
         }
 
-        table {
+        /* table {
             width: 100%;
             border-collapse: collapse;
             margin-top: 20px;
@@ -86,7 +86,7 @@
 
         tbody tr:nth-child(even) {
             background-color: #608544ab;
-        }
+        } */
 
 
         .bold {
