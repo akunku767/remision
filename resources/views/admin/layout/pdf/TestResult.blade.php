@@ -16,7 +16,6 @@
             margin: 0px!important;
             padding: 0;
             font-family: 'Times New Roman', Times, serif;
-            margin: 40px;
             line-height: 1.6;
             display: flex;
             flex-direction: column;
