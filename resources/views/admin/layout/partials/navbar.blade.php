@@ -48,7 +48,7 @@
                             </a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="{{ url('/logout') }}"
+                            <a class="dropdown-item" href="{{ route('auth.logout') }}"
                                 class="nav-link text-body font-weight-bold px-0">
                                 <i class="fa-solid fa-right-from-bracket"></i>
                                 <span>Log Out</span>
