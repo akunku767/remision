@@ -57,6 +57,12 @@ class AuthController extends BaseController
         ], 'User logged in successfully.');
     }
 
+    public function checkConnectivity() {
+        return $this->sendResponse([
+            'email' => Auth::user()->email,
+        ], 'User has been logged in.');
+    }
+
     public function logout(Request $request)
     {
         $request->user()->tokens()->delete();

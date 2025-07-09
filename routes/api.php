@@ -8,6 +8,7 @@ use App\Http\Controllers\API\ResultController;
 use App\Http\Controllers\API\VehicleController;
 
 Route::post('/login', [AuthController::class, 'login'])->name('api.login');
+Route::post('/check-connectivity', [AuthController::class, 'checkConnectivity'])->name('api.checkConnectivity');
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::group(['prefix' => 'results'], function () {
