@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
 use App\Http\Controllers\API\BaseController;
+use Illuminate\Support\Facades\Log;
 
 class AuthController extends BaseController
 {
@@ -32,6 +33,11 @@ class AuthController extends BaseController
 
     public function login(Request $request)
     {
+        Log::info('Login attempt', [
+            'email' => $request->email,
+            'time' => now()
+        ]);
+
         $request->validate([
             'email' => 'required|email',
             'password' => 'required',
