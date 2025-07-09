@@ -8,6 +8,7 @@ use App\Http\Controllers\API\BaseController as BaseController;
 use App\Http\Resources\VehicleResource;
 use Illuminate\Http\JsonResponse;
 use App\Models\Vehicle;
+use Illuminate\Support\Facades\Log;
 
 class VehicleController extends BaseController
 {
@@ -21,6 +22,9 @@ class VehicleController extends BaseController
 
     public function find(Request $request)
     {
+        Log::info('Find vehicle', [
+            'time' => now()
+        ]);
         $vehicle = Vehicle::where('rfid', $request->rfid)->first();
         return new VehicleResource($vehicle);
         // return $vehicle;

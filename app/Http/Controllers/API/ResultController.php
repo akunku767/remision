@@ -15,6 +15,7 @@ use Carbon\Carbon;
 use Illuminate\Support\Str;
 use App\Jobs\GeneratePdfAndSendEmail;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
+use Illuminate\Support\Facades\Log;
 
 use Illuminate\Contracts\View\View;
 
@@ -35,6 +36,9 @@ class ResultController extends BaseController
 
     public function create(Request $request)
     {
+        Log::info('Save result', [
+            'time' => now()
+        ]);
         Carbon::setLocale('id');
         $tested_at = Carbon::now();
         $reff_num = mt_rand(1000000000, 9999999999);
