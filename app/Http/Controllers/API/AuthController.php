@@ -58,6 +58,10 @@ class AuthController extends BaseController
     }
 
     public function checkConnectivity() {
+        Log::info('Check connectivity', [
+            'time' => now()
+        ]);
+        
         return $this->sendResponse([
             'email' => Auth::user()->email,
         ], 'User has been logged in.');
