@@ -48,6 +48,10 @@ class AuthController extends BaseController
         }
 
         $user = Auth::user();
+        Log::info('Login succesfully', [
+            'email' => $request->email,
+            'time' => now()
+        ]);
         return $this->sendResponse([
             'token' => $user->createToken('API Token')->plainTextToken,
         ], 'User logged in successfully.');
