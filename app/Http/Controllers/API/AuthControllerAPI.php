@@ -10,7 +10,7 @@ use Illuminate\Validation\ValidationException;
 use App\Http\Controllers\API\BaseController;
 use Illuminate\Support\Facades\Log;
 
-class AuthController extends BaseController
+class AuthControllerAPI extends BaseController
 {
     public function register(Request $request)
     {
@@ -61,7 +61,7 @@ class AuthController extends BaseController
         Log::info('Check connectivity', [
             'time' => now()
         ]);
-        
+
         return $this->sendResponse([
             'email' => Auth::user()->email,
         ], 'User has been logged in.');
